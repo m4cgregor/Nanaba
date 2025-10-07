@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4305a9e8fb9e9649a8d723ba14e760d, type: 3}
+  m_Name: ShipUltra
+  m_EditorClassIdentifier: Assembly-CSharp::ShipSO
+  shipID: 3
+  shipName: Ship 3
+  fuel: 2000
+  maxFuel: 3000
+  fuelConsumption: 10
+  shipSpeed: 3
+  shipCapacity: 300
+  selectedColor: {r: 0.090758644, g: 0.9433962, b: 0, a: 0}
+  unSelectedColor: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 0}
+  myShipState: 1
+  destinationPort: {fileID: 0}

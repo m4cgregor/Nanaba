@@ -29,6 +29,7 @@ public class ShipController : MonoBehaviour
 
         shipView.UpdateUI(shipData);
         shipView.UpdateVisuals(shipData.unSelectedColor);
+        
     }
 
     public void SetDestinationPort(GameObject newDestination)

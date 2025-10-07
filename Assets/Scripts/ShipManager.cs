@@ -15,6 +15,7 @@ public class ShipManager : MonoBehaviour
     public GameObject buttonPrefab;
     public GameObject shipListVerticalLayout;
     public ShipSO shipSOBase; // <-- Añade esta referencia en el inspector
+    public ShipSO shipSObig;
 
     [Header("Ship Data")]
     public List<GameObject> shipList = new List<GameObject>();
@@ -39,7 +40,7 @@ public class ShipManager : MonoBehaviour
         }
     }
 
-    public void CreateShip()
+    public void CreateShip(ShipSO newShipSO)
     {
         // Instanciar nuevo barco
         GameObject newShip = Instantiate(shipPrefab, transform.position, transform.rotation);
@@ -47,7 +48,7 @@ public class ShipManager : MonoBehaviour
         int newShipID = shipList.Count - 1;
 
         // Crear una nueva instancia de ShipSO y asignarla
-        ShipSO newShipData = ScriptableObject.Instantiate(shipSOBase);
+        ShipSO newShipData = ScriptableObject.Instantiate(newShipSO);
         newShipData.shipID = newShipID;
         newShipData.shipName = "Ship " + newShipID.ToString();
 
