@@ -24,7 +24,7 @@ public class ShipSO : ScriptableObject
 
     // Nuevo campo para el estado del barco
     public ShipState myShipState;
-    public GameObject destinationPort;
+    public PortController destinationPort;
 
     // Enum para los estados del barco
     public enum ShipState

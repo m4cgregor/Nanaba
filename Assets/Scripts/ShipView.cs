@@ -16,7 +16,7 @@ public class ShipView : MonoBehaviour
         shipNameText.text = shipData.shipName;
         shipFuelText.text = shipData.fuel.ToString();
         shipDestinationText.text = shipData.destinationPort != null
-            ? shipData.destinationPort.name
+            ? shipData.destinationPort.portData.portName
             : "No destination";
     }
 

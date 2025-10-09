@@ -47,10 +47,8 @@ public class SelectedShipView : MonoBehaviour
 
             // Handle null destination port
 
-            Debug.Log("Selected Ship Destination Port: " + (shipData.destinationPort != null ? shipData.destinationPort.name : "None"));
-
             shipDestinationText.text = shipData.destinationPort != null
-                ? shipData.destinationPort.GetComponent<PortController>().portName
+                ? shipData.destinationPort.portData.portName
                 : "No destination";
             shipStateText.text = shipData.myShipState.ToString();
             shipFuelText.text = shipData.fuel.ToString();

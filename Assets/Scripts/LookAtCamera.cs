@@ -9,9 +9,9 @@ public class LookAtCamera : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-		
-	}
+		mainCamera = Camera.main.gameObject;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {

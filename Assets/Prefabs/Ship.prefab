@@ -55,7 +55,6 @@ MonoBehaviour:
   shipData: {fileID: 11400000, guid: 38956f24a4a2b3841bb79bda8dbce1ee, type: 2}
   shipView: {fileID: 2136818085032065779}
   myNavMeshAgent: {fileID: 195916171130872900}
-  destinationPort: {fileID: 1061643186160662}
   message: 
 --- !u!114 &2136818085032065779
 MonoBehaviour:
@@ -482,7 +481,6 @@ GameObject:
   - component: {fileID: 114558206633221212}
   - component: {fileID: 114134161051250780}
   - component: {fileID: 114832831352777426}
-  - component: {fileID: 114304544208427256}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -576,19 +574,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
 --- !u!114 &114832831352777426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718811657071052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 399de6a971c00964faf879783dabee1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
---- !u!114 &114304544208427256
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

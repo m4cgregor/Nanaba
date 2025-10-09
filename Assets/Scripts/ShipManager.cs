@@ -82,7 +82,7 @@ public class ShipManager : MonoBehaviour
         SelectedShipController.Instance.SelectShip(selectedShip);
     }
 
-    public void SetSelectedShipDestination(GameObject destination)
+    public void SetSelectedShipDestination(PortController destination)
     {
         if (selectedShip == null) return;
         selectedShip.SetDestinationPort(destination);
