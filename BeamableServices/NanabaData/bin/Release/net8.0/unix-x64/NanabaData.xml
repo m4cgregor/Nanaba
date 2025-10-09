@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NanabaData</name>
+    </assembly>
+    <members>
+        <member name="T:Beamable.Server.NanabaData">
+            <summary>
+            This class represents the existence of the NanabaData database.
+            Use it for type safe access to the database.
+            <code>
+            var db = await Storage.GetDatabase&lt;NanabaData&gt;();
+            </code>
+            </summary>
+        </member>
+        <member name="M:Beamable.Server.NanabaDataExtension.NanabaDataDatabase(Beamable.Server.IStorageObjectConnectionProvider)">
+            <summary>
+            Get an authenticated MongoDB instance for NanabaData
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Beamable.Server.NanabaDataExtension.NanabaDataCollection``1(Beamable.Server.IStorageObjectConnectionProvider,System.String)">
+            <summary>
+            Gets a MongoDB collection from NanabaData by the requested name, and uses the given mapping class.
+            If you don't want to pass in a name, consider using <see cref="!:NanabaDataCollection&lt;TCollection&gt;()"/>
+            </summary>
+            <param name="name">The name of the collection</param>
+            <typeparam name="TCollection">The type of the mapping class</typeparam>
+            <returns>When the promise completes, you'll have an authorized collection</returns>
+        </member>
+        <member name="M:Beamable.Server.NanabaDataExtension.NanabaDataCollection``1(Beamable.Server.IStorageObjectConnectionProvider)">
+            <summary>
+            Gets a MongoDB collection from NanabaData by the requested name, and uses the given mapping class.
+            If you want to control the collection name separate from the class name, consider using <see cref="!:NanabaDataCollection&lt;TCollection&gt;(string)"/>
+            </summary>
+            <param name="name">The name of the collection</param>
+            <typeparam name="TCollection">The type of the mapping class</typeparam>
+            <returns>When the promise completes, you'll have an authorized collection</returns>
+        </member>
+    </members>
+</doc>

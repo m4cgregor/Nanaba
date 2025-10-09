@@ -1,0 +1,227 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "TestService",
+    "version": "0.0.0"
+  },
+  "paths": {
+    "/admin/HealthCheck": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "scope": [ ]
+          }
+        ]
+      },
+      "x-beamable-method-skip-client-generation": true,
+      "x-beamable-callable-method-name": "HealthCheck"
+    },
+    "/admin/Docs": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "scope": [ ]
+          }
+        ]
+      },
+      "x-beamable-method-skip-client-generation": true,
+      "x-beamable-callable-method-name": "Docs"
+    },
+    "/admin/Metadata": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/beamable.server.MicroserviceRuntimeMetadata"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "scope": [ ]
+          }
+        ]
+      },
+      "x-beamable-method-skip-client-generation": true,
+      "x-beamable-callable-method-name": "Metadata"
+    },
+    "/Add": {
+      "post": {
+        "tags": [
+          "Uncategorized"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddRequestArgs"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "scope": [ ],
+            "user": [ ]
+          }
+        ],
+        "x-beamable-operation-method-type": "ClientCallableAttribute"
+      },
+      "x-beamable-method-skip-client-generation": false,
+      "x-beamable-callable-method-name": "Add"
+    }
+  },
+  "components": {
+    "schemas": {
+      "beamable.server.MicroserviceRuntimeMetadata": {
+        "title": "MicroserviceRuntimeMetadata",
+        "required": [
+          "disableAllBeamableEvents",
+          "enableEagerContentLoading",
+          "federatedComponents",
+          "instanceId",
+          "routingKey",
+          "sdkBaseBuildVersion",
+          "sdkExecutionVersion",
+          "sdkVersion",
+          "serviceName",
+          "useLegacySerialization"
+        ],
+        "type": "object",
+        "properties": {
+          "serviceName": {
+            "type": "string"
+          },
+          "sdkVersion": {
+            "type": "string"
+          },
+          "sdkBaseBuildVersion": {
+            "type": "string"
+          },
+          "sdkExecutionVersion": {
+            "type": "string"
+          },
+          "useLegacySerialization": {
+            "type": "boolean"
+          },
+          "disableAllBeamableEvents": {
+            "type": "boolean"
+          },
+          "enableEagerContentLoading": {
+            "type": "boolean"
+          },
+          "instanceId": {
+            "type": "string"
+          },
+          "routingKey": {
+            "type": "string"
+          },
+          "federatedComponents": {
+            "type": "array"
+          }
+        },
+        "additionalProperties": false,
+        "x-beamable-type-namespace": "beamable.server",
+        "x-beamable-type-name": "MicroserviceRuntimeMetadata",
+        "x-beamable-qualified-name": "beamable.server.MicroserviceRuntimeMetadata",
+        "x-beamable-assembly": "beamable.tooling.common",
+        "x-beamable-assembly-version": "5.4.2.0",
+        "x-beamable-method-skip-client-generation": true
+      },
+      "AddRequestArgs": {
+        "required": [
+          "a",
+          "b"
+        ],
+        "type": "object",
+        "properties": {
+          "a": {
+            "type": "integer",
+            "format": "int32",
+            "x-beamable-is-optional-schema": false
+          },
+          "b": {
+            "type": "integer",
+            "format": "int32",
+            "x-beamable-is-optional-schema": false
+          }
+        },
+        "additionalProperties": false,
+        "x-beamable-method-skip-client-generation": false
+      }
+    },
+    "securitySchemes": {
+      "scope": {
+        "type": "apiKey",
+        "description": "Customer and project scope. This should contain the '<customer-id>.<project-id>'.",
+        "name": "X-DE-SCOPE",
+        "in": "header"
+      },
+      "user": {
+        "type": "http",
+        "description": "Bearer authentication with an player access token in the Authorization header.",
+        "scheme": "bearer",
+        "bearerFormat": "Bearer <Access Token>"
+      }
+    }
+  },
+  "x-federated-components": [ ],
+  "x-beamable-federated-components-v2": [ ],
+  "x-beamable-microservice-class-type": "Beamable.TestService.TestService",
+  "x-beamable-microservice-methods-to-skip-generation": [
+    "admin/HealthCheck",
+    "admin/Docs",
+    "admin/Metadata"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "path": "beamableServices.sln",
+    "projects": [
+      "..\\Library\\BeamableEditor\\GeneratedProjects\\Unity.Beamable.Customer.Common\\Unity.Beamable.Customer.Common.csproj",
+      "Nanaba\\Nanaba.csproj",
+      "NanabaData\\NanabaData.csproj",
+      "TestService\\TestService.csproj"
+    ]
+  }
+}

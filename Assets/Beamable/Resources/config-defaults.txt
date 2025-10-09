@@ -1,0 +1,7 @@
+{
+    "cid": "1925146714814495",
+    "alias": "m4cgregor",
+    "pid": "DE_1925146714814496",
+    "host": "https://api.beamable.com",
+    "portalUrl": "https://portal.beamable.com"
+}
