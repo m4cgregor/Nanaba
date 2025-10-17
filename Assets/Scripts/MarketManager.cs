@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public class MarketManager : MonoBehaviour
+{
+    [SerializeField]
+    private List<MercancySO> market = new List<MercancySO>();
 
-public class MarketManager : MonoBehaviour {
-
-    public List<MercancySO> market;
+    public Market ActiveMarket { get; private set; }
 
     public RectTransform marketPanel;
     public GameObject newLinePrefab;
@@ -16,42 +18,68 @@ public class MarketManager : MonoBehaviour {
     public Text selectedMercancyName;
     public Text selectedMercancyVolume;
 
-    float panelHeigth;
-    public Text[] UItexts;
+    private readonly List<GameObject> instantiatedRows = new List<GameObject>();
+
+    private void Awake()
+    {
+        ActiveMarket = new Market(market);
+    }
 
     private void Start()
     {
-        //   market = new mercancy[5];
-
-        if (market.Count > 0) {
-
-            for (int i = 0; i < market.Count; i++)
-
-            {
-                GameObject newLine = Instantiate(newLinePrefab, marketPanel.position, marketPanel.rotation);
-
-                newLine.transform.SetParent(marketPanel.transform);
-                newLine.transform.Translate(0, -50 - (30 * i), 0);
-
-                UItexts = newLine.GetComponentsInChildren<Text>();
-
-                UItexts[0].text = market[i].MercancyName;
-                UItexts[1].text = market[i].MercancyID.ToString() ;
-                UItexts[2].text = market[i].MercancyCount.ToString();
-                UItexts[3].text = market[i].MercancyVolume.ToString();
-
-                // panelHeigth = marketPanel.position.y;
-                // panelHeigth += 50;
-            }
-
-
-
-         //   UItexts[] = newLine.GetComponentsInChildren<Text>().ToString();
-
-
-        }
-
-
+        PopulateUI();
     }
 
+    public void RefreshUI()
+    {
+        ClearUIRows();
+        PopulateUI();
+    }
+
+    private void PopulateUI()
+    {
+        if (marketPanel == null || newLinePrefab == null || ActiveMarket == null)
+        {
+            return;
+        }
+
+        IReadOnlyList<MarketStock> stock = ActiveMarket.Stock;
+        for (int i = 0; i < stock.Count; i++)
+        {
+            MarketStock entry = stock[i];
+            MercancySO mercancy = entry.Mercancy;
+            if (mercancy == null)
+            {
+                continue;
+            }
+
+            GameObject newLine = Instantiate(newLinePrefab, marketPanel.position, marketPanel.rotation);
+            newLine.transform.SetParent(marketPanel.transform);
+            newLine.transform.Translate(0, -50 - (30 * i), 0);
+
+            Text[] uiTexts = newLine.GetComponentsInChildren<Text>();
+            if (uiTexts.Length >= 4)
+            {
+                uiTexts[0].text = mercancy.MercancyName;
+                uiTexts[1].text = mercancy.MercancyID.ToString();
+                uiTexts[2].text = entry.Quantity.ToString();
+                uiTexts[3].text = mercancy.MercancyVolume.ToString();
+            }
+
+            instantiatedRows.Add(newLine);
+        }
+    }
+
+    private void ClearUIRows()
+    {
+        for (int i = 0; i < instantiatedRows.Count; i++)
+        {
+            if (instantiatedRows[i] != null)
+            {
+                Destroy(instantiatedRows[i]);
+            }
+        }
+
+        instantiatedRows.Clear();
+    }
 }
